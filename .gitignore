@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+##############################
+## OS X
+##############################
+.DS_Store
+
+aws-auth-secrets.yaml
