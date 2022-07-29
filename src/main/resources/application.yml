@@ -1,6 +1,6 @@
 spring.config.import:
-  - aws-secretsmanager:/secret/backend
-  - aws-secretsmanager:/stacks/aws/demo
+  - optional:aws-secretsmanager:/stacks-secret/example-1/
+  - optional:aws-secretsmanager:/stacks-secret/example-2/
 
 server:
   servlet:

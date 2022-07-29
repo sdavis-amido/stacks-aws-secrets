@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-  @Value(value = "${stacks.aws.demo1}")
-  private String demo1;
+  @Value(value = "${stacks-secret-1:secret-not-available}")
+  private String secret1;
 
-  @Value(value = "${stacks.aws.demo2}")
-  private String demo2;
+  @Value(value = "${stacks-secret-2:secret-not-available}")
+  private String secret2;
 
-  @Value(value = "${stacks1}")
-  private String stacks1;
+  @Value(value = "${stacks-secret-3:secret-not-available}")
+  private String secret3;
 
-  @Value(value = "${stacks2}")
-  private String stacks2;
+  @Value(value = "${stacks-secret-4:secret-not-available}")
+  private String secret4;
 
   @GetMapping
   public ResponseEntity<String> get() {
@@ -35,7 +35,14 @@ public class TestController {
     log.debug(showSecrets());
   }
 
+  public String getSecrets() {
+
+    log.info("Getting some secrets...");
+
+    return showSecrets();
+  }
+
   private String showSecrets() {
-    return "Secrets -> " + demo1 + " " + demo2 + " " + stacks1 + " " + stacks2;
+    return "Secrets -> " + secret1 + ", " + secret2 + ", " + secret3 + ", " + secret4;
   }
 }
